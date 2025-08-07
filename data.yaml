@@ -1,0 +1,12 @@
+path: dataset
+
+train: images/train
+val: images/val
+
+names:
+  - train
+  - signal
+  - railway switch
+  - pole
+  - balise
+  - overhead support arm
