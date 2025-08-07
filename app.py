@@ -1,23 +1,16 @@
 from ultralytics import YOLO
-import cv2
 
-model = YOLO("best.pt")  # il tuo modello
+# 1. Inizializza modello
+model = YOLO('best.pt')  # Path al tuo modello
 
-cap = cv2.VideoCapture("fedeschiuma.mp4")  # o 0 per webcam
+# 2. Esegui inferenza in batch sulla cartella dei frame
+model.predict(
+    source='frames',            # Cartella con tutti i frame estratti
+    save=True,                  # Salva immagini annotate
+    save_txt=True,              # <<<<<< SALVA I .TXT DELLE LABEL
+    project='dataset_cvat',     # Cartella di output (puoi cambiarla)
+    name='predict',             # Sottocartella di output (sempre la stessa)
+    exist_ok=True               # Sovrascrive la cartella se già esiste
+)
 
-while True:
-    ret, frame = cap.read()
-    if not ret:
-        break
-
-    results = model(frame)
-    annotated_frame = results[0].plot()  # disegna le box
-
-    cv2.imshow("YOLO Detection", annotated_frame)  # Mostra il frame
-
-    # Premi 'q' per uscire
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
+print("Inferenzione completata! Trovi immagini annotate e .txt in 'dataset_cvat/predict/'")
