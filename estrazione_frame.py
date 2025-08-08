@@ -8,7 +8,7 @@ output_folder = 'frames'
 os.makedirs(output_folder, exist_ok=True)
 video_files = glob(os.path.join(video_folder, '*.mp4'))
 
-frame_interval = 3  # secondi
+frame_interval = 3yol  # secondi
 global_count = 0    # Contatore globale per tutti i frame
 
 for video_path in video_files:
