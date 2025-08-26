@@ -1,3 +1,17 @@
-ultralytics==8.3.19
+
+# Core
+ultralytics==8.3.139
 opencv-python==4.10.0.84
 numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.9.2
+seaborn==0.13.2
+
+# Deep learning
+torch==2.2.2
+torchvision==0.17.2
+
+# Utilities
+tqdm==4.66.5
+pyyaml==6.0.2
+requests==2.32.3
